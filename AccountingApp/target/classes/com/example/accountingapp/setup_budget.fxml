@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<DialogPane prefHeight="450" prefWidth="500" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accountingapp.SetupBudgetController">
+    <header>
+        <Label style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2d3748;" text="🎯 Настройка бюджета на месяц" />
+    </header>
+    <content>
+        <VBox prefHeight="726.0" prefWidth="500.0" spacing="15" style="-fx-padding: 20;">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label style="-fx-text-fill: #4a5568; -fx-font-weight: bold;" text="Месяц:" />
+                <ComboBox fx:id="monthComboBox" prefWidth="150" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 5;" />
+            </HBox>
+            <Label style="-fx-font-weight: bold; -fx-text-fill: #2d3748;" text="Установите бюджет для каждой категории:" />
+            <TableView fx:id="budgetTable" prefHeight="250" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 5;">
+            </TableView>
+            <HBox spacing="10">
+                <Label style="-fx-font-weight: bold; -fx-text-fill: #4a5568;" text="Общий бюджет:" />
+                <Label fx:id="totalBudgetLabel" style="-fx-font-weight: bold; -fx-text-fill: #4299e1; -fx-font-size: 16;" text="0.00 ₽" />
+            </HBox>
+            <Label style="-fx-text-fill: #718096; -fx-font-size: 12;" text="💡 Подсказка: Нажмите правой кнопкой на строку для редактирования" />
+        </VBox>
+    </content>
+    <buttonTypes>
+        <ButtonType buttonData="OK_DONE" text="Сохранить" />
+        <ButtonType buttonData="CANCEL_CLOSE" text="Отмена" />
+    </buttonTypes>
+</DialogPane>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<DialogPane prefHeight="477.0" prefWidth="400" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accountingapp.AddTransactionController">
+    <header>
+        <Label fx:id="titleLabel" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #2d3748;" text="Добавить транзакцию" />
+    </header>
+    <content>
+        <VBox prefHeight="585.0" prefWidth="400.0" spacing="15" style="-fx-padding: 20;">
+            <VBox spacing="5">
+                <Label style="-fx-text-fill: #4a5568; -fx-font-weight: bold;" text="Тип операции:" />
+                <ComboBox fx:id="typeComboBox" prefWidth="200" />
+            </VBox>
+            <VBox spacing="5">
+                <Label style="-fx-text-fill: #4a5568; -fx-font-weight: bold;" text="Категория:" />
+                <ComboBox fx:id="categoryComboBox" prefWidth="200" />
+            </VBox>
+            <VBox spacing="5">
+                <Label style="-fx-text-fill: #4a5568; -fx-font-weight: bold;" text="Сумма:" />
+                <TextField fx:id="amountField" promptText="0.00" />
+            </VBox>
+            <VBox spacing="5">
+                <Label style="-fx-text-fill: #4a5568; -fx-font-weight: bold;" text="Описание:" />
+                <TextArea fx:id="descriptionField" prefRowCount="3" promptText="Описание транзакции" wrapText="true" />
+            </VBox>
+            <VBox spacing="5">
+                <Label style="-fx-text-fill: #4a5568; -fx-font-weight: bold;" text="Дата:" />
+                <DatePicker fx:id="datePicker" />
+            </VBox>
+        </VBox>
+    </content>
+    <buttonTypes>
+        <ButtonType buttonData="OK_DONE" text="Сохранить" />
+        <ButtonType buttonData="CANCEL_CLOSE" text="Отмена" />
+    </buttonTypes>
+</DialogPane>

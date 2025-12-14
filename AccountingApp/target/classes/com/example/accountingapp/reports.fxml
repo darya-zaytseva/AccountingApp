@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<VBox spacing="15" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.accountingapp.ReportsController"
+      style="-fx-padding: 20; -fx-background-color: linear-gradient(to bottom, #f8f9fa, #f1f5f9);">
+    <Label text="📈 Финансовые отчеты"
+           style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #2d3748;"/>
+    <HBox spacing="20" alignment="CENTER_LEFT"
+          style="-fx-background-color: white;
+                 -fx-padding: 15;
+                 -fx-background-radius: 10;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+        <VBox spacing="5">
+            <Label text="Начальная дата:"
+                   style="-fx-font-weight: bold; -fx-text-fill: #4a5568;"/>
+            <DatePicker fx:id="startDatePicker" prefWidth="150"/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Конечная дата:"
+                   style="-fx-font-weight: bold; -fx-text-fill: #4a5568;"/>
+            <DatePicker fx:id="endDatePicker" prefWidth="150"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="📊 Сформировать отчет"
+                onAction="#generateReport"
+                style="-fx-background-color: linear-gradient(to right, #1bbfcc, #33d4e0);
+                       -fx-text-fill: white;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 8;
+                       -fx-padding: 10 20;
+                       -fx-cursor: hand;
+                       -fx-font-size: 14;"/>
+    </HBox>
+    <HBox spacing="20">
+        <VBox style="-fx-padding: 20;
+                     -fx-background-color: linear-gradient(to bottom right, #bfcc1b, #d4e033);
+                     -fx-background-radius: 10;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+              HBox.hgrow="ALWAYS">
+            <Label text="💰 Общий доход"
+                   style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14;"/>
+            <Label fx:id="totalIncomeLabel" text="0.00 ₽"
+                   style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="За выбранный период"
+                   style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 12;"/>
+        </VBox>
+        <VBox style="-fx-padding: 20;
+                     -fx-background-color: linear-gradient(to bottom right, #cc1bbf, #e83dd7);
+                     -fx-background-radius: 10;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+              HBox.hgrow="ALWAYS">
+            <Label text="💸 Общий расход"
+                   style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14;"/>
+            <Label fx:id="totalExpenseLabel" text="0.00 ₽"
+                   style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="За выбранный период"
+                   style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 12;"/>
+        </VBox>
+        <VBox style="-fx-padding: 20;
+                     -fx-background-color: linear-gradient(to bottom right, #1bbfcc, #33d4e0);
+                     -fx-background-radius: 10;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);"
+              HBox.hgrow="ALWAYS">
+            <Label text="📊 Баланс"
+                   style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14;"/>
+            <Label fx:id="balanceLabel" text="0.00 ₽"
+                   style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: white;"/>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Label text="Доходы минус расходы"
+                   style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 12;"/>
+        </VBox>
+    </HBox>
+    <VBox spacing="10"
+          style="-fx-background-color: white;
+                 -fx-padding: 20;
+                 -fx-background-radius: 10;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+        <Label text="📋 Топ категорий расходов:"
+               style="-fx-font-weight: bold; -fx-text-fill: #2d3748; -fx-font-size: 16;"/>
+        <TableView fx:id="categoriesTable" prefHeight="250">
+        </TableView>
+    </VBox>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="📥 Экспорт в Excel"
+                onAction="#exportToExcel"
+                style="-fx-background-color: linear-gradient(to right, #48bb78, #38a169);
+                       -fx-text-fill: white;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 8;
+                       -fx-padding: 10 20;
+                       -fx-cursor: hand;
+                       -fx-font-size: 14;">
+            <graphic>
+                <Label text="📊" style="-fx-font-size: 16;"/>
+            </graphic>
+        </Button>
+    </HBox>
+    <HBox spacing="20" alignment="CENTER"
+          style="-fx-background-color: white;
+                 -fx-padding: 10 20;
+                 -fx-background-radius: 10;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 1);">
+        <Label text="📊 Отчеты строятся на основе реальных транзакций из вашей базы данных"
+               style="-fx-text-fill: #718096; -fx-font-size: 12; -fx-font-style: italic;"/>
+    </HBox>
+</VBox>

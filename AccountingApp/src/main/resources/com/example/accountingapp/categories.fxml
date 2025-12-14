@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox spacing="15" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.accountingapp.CategoriesController">
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2d3748;" text="📂 Категории" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button onAction="#showAddCategoryDialog" style="-fx-background-color: #48bb78;                        -fx-text-fill: white;                        -fx-font-weight: bold;                        -fx-background-radius: 5;                        -fx-padding: 8 15;                        -fx-cursor: hand;" text="➕ Добавить категорию" />
+    </HBox>
+    <TabPane VBox.vgrow="ALWAYS">
+        <Tab text="📈 Доходы">
+            <VBox spacing="10">
+                <TableView fx:id="incomeCategoriesTable" prefHeight="300" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 5;">
+                    <columns>
+                        <TableColumn fx:id="incomeNameColumn" prefWidth="150" text="Название" />
+                        <TableColumn fx:id="incomeColorColumn" prefWidth="100" text="Цвет" />
+                        <TableColumn fx:id="incomeIconColumn" prefWidth="80" text="Иконка" />
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <Button onAction="#deleteAllIncomeCategories" style="-fx-background-color: #f56565;                                    -fx-text-fill: white;                                    -fx-font-weight: bold;                                    -fx-background-radius: 5;                                    -fx-padding: 8 15;                                    -fx-cursor: hand;" text="🗑 Удалить все доходы" />
+                    <Label style="-fx-text-fill: #718096; -fx-font-size: 12;" text="Нажмите на 🗑 в таблице для удаления одной категории" />
+                </HBox>
+            </VBox>
+        </Tab>
+        <Tab text="📉 Расходы">
+            <VBox spacing="10">
+                <TableView fx:id="expenseCategoriesTable" prefHeight="300" style="-fx-background-color: white; -fx-border-color: #e2e8f0; -fx-border-radius: 5;">
+                    <columns>
+                        <TableColumn fx:id="expenseNameColumn" prefWidth="150" text="Название" />
+                        <TableColumn fx:id="expenseColorColumn" prefWidth="100" text="Цвет" />
+                        <TableColumn fx:id="expenseIconColumn" prefWidth="80" text="Иконка" />
+                    </columns>
+                </TableView>
+                <HBox spacing="10">
+                    <Button onAction="#deleteAllExpenseCategories" style="-fx-background-color: #f56565;                                    -fx-text-fill: white;                                    -fx-font-weight: bold;                                    -fx-background-radius: 5;                                    -fx-padding: 8 15;                                    -fx-cursor: hand;" text="🗑 Удалить все расходы" />
+                    <Label style="-fx-text-fill: #718096; -fx-font-size: 12;" text="Нажмите на 🗑 в таблице для удаления одной категории" />
+                </HBox>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.accountingapp.TransactionsController"
+      spacing="15"
+      style="-fx-padding: 20; -fx-background-color: linear-gradient(to bottom, #f8f9fa, #f1f5f9);">
+    <HBox spacing="20" alignment="CENTER_LEFT">
+        <Label text="💳 История транзакций"
+               style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #2d3748;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <ComboBox fx:id="monthFilter" prefWidth="150"
+                  style="-fx-background-color: white;
+                         -fx-border-color: #e2e8f0;
+                         -fx-border-radius: 5;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 1);"/>
+        <ComboBox fx:id="typeFilter" prefWidth="120"
+                  style="-fx-background-color: white;
+                         -fx-border-color: #e2e8f0;
+                         -fx-border-radius: 5;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 1);"/>
+    </HBox>
+    <TableView fx:id="transactionsTable" VBox.vgrow="ALWAYS"
+               style="-fx-background-color: white;
+                      -fx-border-color: #e2e8f0;
+                      -fx-border-radius: 8;
+                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+        <columns>
+            <TableColumn fx:id="dateColumn" text="Дата" prefWidth="110"
+                         style="-fx-background-color: #f8fafc; -fx-border-color: #e2e8f0;"/>
+            <TableColumn fx:id="categoryColumn" text="Категория" prefWidth="130"
+                         style="-fx-background-color: #f8fafc; -fx-border-color: #e2e8f0;"/>
+            <TableColumn fx:id="typeColumn" text="Тип" prefWidth="90"
+                         style="-fx-background-color: #f8fafc; -fx-border-color: #e2e8f0;"/>
+            <TableColumn fx:id="amountColumn" text="Сумма" prefWidth="120"
+                         style="-fx-background-color: #f8fafc; -fx-border-color: #e2e8f0;"/>
+            <TableColumn fx:id="descriptionColumn" text="Описание" prefWidth="220"
+                         style="-fx-background-color: #f8fafc; -fx-border-color: #e2e8f0;"/>
+        </columns>
+    </TableView>
+    <HBox spacing="10" alignment="CENTER_RIGHT"
+          style="-fx-background-color: white;
+                 -fx-padding: 12 20;
+                 -fx-background-radius: 8;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 1);">
+        <Label text="Итого за месяц:"
+               style="-fx-font-weight: bold; -fx-text-fill: #4a5568;"/>
+        <Label fx:id="totalAmountLabel" text="0.00 ₽"
+               style="-fx-font-weight: bold; -fx-font-size: 18; -fx-text-fill: #2d3748;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label text="📊 Всего транзакций: 0"
+               style="-fx-text-fill: #718096; -fx-font-size: 12;"/>
+    </HBox>
+    <HBox spacing="20" alignment="CENTER"
+          style="-fx-background-color: white;
+                 -fx-padding: 10 20;
+                 -fx-background-radius: 8;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 5, 0, 0, 1);">
+        <HBox spacing="5" alignment="CENTER">
+            <Region style="-fx-background-color: #48bb78; -fx-pref-width: 15; -fx-pref-height: 15; -fx-background-radius: 3;"/>
+            <Label text="Доходы" style="-fx-text-fill: #718096; -fx-font-size: 12;"/>
+        </HBox>
+        <HBox spacing="5" alignment="CENTER">
+            <Region style="-fx-background-color: #f56565; -fx-pref-width: 15; -fx-pref-height: 15; -fx-background-radius: 3;"/>
+            <Label text="Расходы" style="-fx-text-fill: #718096; -fx-font-size: 12;"/>
+        </HBox>
+        <Label text="💡 Суммы окрашены в соответствии с типом операции"
+               style="-fx-text-fill: #a0aec0; -fx-font-size: 11; -fx-font-style: italic;"/>
+    </HBox>
+</VBox>
