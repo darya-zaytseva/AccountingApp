@@ -102,4 +102,4 @@
 
 По вопросам, связанным с работой приложения, предложениям или сообщениям об ошибках, вы можете связаться:
 *   **Электронная почта**: [darya.zaytseva.2007@bk.ru]
-*   **Репозиторий проекта**: [[https://github.com/darya-zarmolenko/AccountingApp](https://github.com/darya-zaytseva/AccountingApp)]
+*   **Репозиторий проекта**: [https://github.com/darya-zaytseva/AccountingApp]
